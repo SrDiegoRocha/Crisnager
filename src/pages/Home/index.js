@@ -31,11 +31,7 @@ const Home = () => {
     const [result, setResult] = useState(0);
 
     useEffect(() => {
-        console.log('valor detalhado!', simplePrice, compositePrice, videosPrice, makeOffPrice);
-        console.log('valor atualizado!', simplePrice + compositePrice + videosPrice + makeOffPrice);
-
         return setResult(simplePrice + compositePrice + videosPrice + makeOffPrice);
-
     }, [
         simpleQtd,
         compositeQtd,

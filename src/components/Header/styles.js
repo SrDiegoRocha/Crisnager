@@ -8,7 +8,7 @@ export const Container = styled.View`
     padding-left: 16px;
     padding-right: 16px;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 `;
 export const Image = styled.Text`
