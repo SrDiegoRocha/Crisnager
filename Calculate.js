@@ -11,7 +11,7 @@ export const funCalc = (key, value) => {
 
     for (let i = 0; i < breakPoints; i++) {
         breakPointsPriceSimple.push((i*5)+25);
-        breakPointsPriceComposite.push((i*5)+30);
+        breakPointsPriceComposite.push((i*5)+28);
     }
 
 

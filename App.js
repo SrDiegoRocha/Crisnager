@@ -10,6 +10,7 @@ export default function App() {
     try {
       const { isAvailable } = await Updates.checkForUpdateAsync();
       if (isAvailable) {
+        alert('Há uma nova atualização disponível! Não se preocupe, estamos instalando-a para você.')
         await Updates.fetchUpdateAsync();
         // ... notify user of update ...
         await Updates.reloadAsync();
