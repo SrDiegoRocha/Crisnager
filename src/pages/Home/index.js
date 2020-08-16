@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container,
-         InputArea, Input, Horizontal, InputGroup, InputTitle,
+         InputArea, Input, Horizontal, InputGroup, InputTitle, InputTitleCenter,
          IconArea,
          ResultArea, ResultBox, ResultText
 } from './styles';
@@ -28,15 +28,19 @@ const Home = () => {
     const [makeOffQtd, setMakeOffQtd] = useState(0);
     const [makeOffPrice, setMakeOffPrice] = useState(0);
 
+    const [singleQtd, setSingleQtd] = useState(0);
+    const [singlePrice, setSinglePrice] = useState(0);
+
     const [result, setResult] = useState(0);
 
     useEffect(() => {
-        return setResult(simplePrice + compositePrice + videosPrice + makeOffPrice);
+        return setResult(simplePrice + compositePrice + videosPrice + makeOffPrice + singlePrice);
     }, [
         simpleQtd,
         compositeQtd,
         videosQtd,
-        makeOffQtd
+        makeOffQtd,
+        singleQtd
     ]);
 
     const calculate = (key, valuey) => {
@@ -65,6 +69,10 @@ const Home = () => {
             setMakeOffPrice(response.priceAndQtd);
             setMakeOffQtd(response.priceAndQtd);
 
+        } else if(key === 'single') {
+            const response = funCalc(key, value);
+            setSinglePrice(response.price);
+            setSingleQtd(response.qtd);
         }
     }
 
@@ -104,7 +112,7 @@ const Home = () => {
                         </IconArea>
                     </InputGroup>
                     <InputGroup>
-                        <InputTitle>Composto</InputTitle>
+                        <InputTitle>Compostos</InputTitle>
                         <IconArea>
                             <Input 
                                 minValue={0}
@@ -161,6 +169,27 @@ const Home = () => {
                                 textColor={thirdColor}
                                 iconStyle={{color: thirdColor}}
                             >{makeOffQtd}</Input>
+                        </IconArea>
+                    </InputGroup>
+                </Horizontal>
+                <Horizontal>
+                    <InputGroup>
+                        <InputTitleCenter>Avulsas</InputTitleCenter>
+                        <IconArea>
+                            <Input
+                                minValue={0}
+                                maxValue={999}
+                                rounded
+                                maxLength={3}
+                                keyboardType="numeric" 
+                                onChange={number => calculate('single', {number})}
+                                borderColor={secondaryColor}
+                                rightButtonBackgroundColor='transparent'
+                                leftButtonBackgroundColor='transparent'
+                                borderColor="transparent"
+                                textColor={thirdColor}
+                                iconStyle={{color: thirdColor}}
+                            >{singleQtd}</Input>
                         </IconArea>
                     </InputGroup>
                 </Horizontal>

@@ -55,5 +55,10 @@ export const funCalc = (key, value) => {
             priceAndQtd: value
         }
 
+    } else if(key === 'single') {
+        return {
+            price: value * 5,
+            qtd: value
+        }
     }
 }

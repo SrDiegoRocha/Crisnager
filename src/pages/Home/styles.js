@@ -33,6 +33,15 @@ export const InputTitle = styled.Text`
     text-transform: uppercase;
     margin-bottom: 4px;
 `;
+export const InputTitleCenter = styled.Text`
+    width: 30%;
+    color: white;
+    font-size: 12px;
+    align-items: flex-end;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+`;
 export const Input = styled(NumericInput)`
     font-size: 24px;
 `;
